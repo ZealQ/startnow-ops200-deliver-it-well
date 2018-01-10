@@ -34,6 +34,14 @@ describe('server/app.js', function() {
     .end((err, res) => {
       expect(err).not.exist;
       expect(JSON.stringify(res.text)).to.contain('Hello World');
+      //done();
+    });
+
+    chai.request(server)
+    .get('/')
+    .end((err, res) => {
+      expect(err).not.exist;
+      expect(JSON.stringify(res.text)).to.contain('This Will Pass!');
       done();
     });
   });
